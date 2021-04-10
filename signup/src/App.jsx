@@ -41,12 +41,13 @@ class App extends Component {
             password: this.state.password
         }
         axios.post('http://localhost:3000/page/register', registered)
+        .then(response => console.log(response.data))
         
-        this.setState = {
+        this.setState({
             name:'',
             userName:'',
             password:''
-        }
+        })
 
     }
 
