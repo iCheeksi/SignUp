@@ -6,7 +6,7 @@ var dotenv = require("dotenv")
 
 dotenv.config()
 
-mongoose.connect(process.env.DB_ACESS, () =>console.log("DB"))
+mongoose.connect("mongodb+srv://fhw9574:shelby@cluster0.tdjd2.mongodb.net/userTable?retryWrites=true&w=majority", () =>console.log("DB connected"))
 
 app.listen(3000, () =>{
     console.log("Server is working!")
