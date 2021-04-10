@@ -5,7 +5,7 @@ var router = express.Router()
 var databaseInfo = require('../database/database')
 
 //The page is expecting post request since the user will give the page some information
-router.post('/resgister', (request, response) => 
+router.post('/register', (request, response) => 
 {
     var userInfo = new databaseInfo({
         //this is where this method will grab a user's information and make sure it does before the user can submit
