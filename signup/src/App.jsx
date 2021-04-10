@@ -1,7 +1,8 @@
-import React, { component } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css"
+import React, { Component } from 'react';
+import "bootstrap/dist/css/bootstrap.css"
+import axios from 'axios'
 
-class app extends component {
+class App extends Component {
     constructor(){
         super()
         this.state = {
@@ -9,6 +10,10 @@ class app extends component {
             userName:'',
             password:''
         }
+        this.changename = this.changename.bind(this)
+        this.changeUserName = this.changeUserName.bind(this)
+        this.changePassword = this.changePassword.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
     //react function to change the value of name, username and password field
     changename(event){
@@ -27,12 +32,30 @@ class app extends component {
         })
     }
 
+    onSubmit(event){
+        event.preventDefault()
+
+        const registered = {
+            name: this.state.name,
+            userName: this.state.userName,
+            password: this.state.password
+        }
+        axios.post('http://localhost:3000/page/register', registered)
+        
+        this.setState = {
+            name:'',
+            userName:'',
+            password:''
+        }
+
+    }
+
     render(){
         return(
             <div>
                 <div className='container'>
                     <div className='form-div'>
-                        <form>
+                        <form onSubmit={this.onSubmit}>
                             <input type = 'text'
                             placeholder='Name'
                             onChange={this.changename}
