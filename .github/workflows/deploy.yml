@@ -15,3 +15,7 @@ jobs:
           heroku_email: "shelby_mun@hotmail.com"
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "shelbysignup"
+          useforce: true,
+          dynamicFiles: true,
+          procfile: "worker: npm start"
+          buildpacks: "['https://github.com/heroku/heroku-buildpack-nodejs.git','https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git']"
